@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function SignUpForm({setToken}) {
     const [username, setUsername] = useState("");
@@ -31,22 +31,23 @@ export default function SignUpForm({setToken}) {
 
   return (
     <div>
-      <h2>Sign Up!</h2>;
+      <h2 className="text-primary">Sign Up!</h2>;
       {
             error && <p>{error.message}</p>
       }
       <form onSubmit={handleSubmit}>
-        <label>
-            Username: <input value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <label className='px-2 text-danger-emphasis bg-primary-subtle border border-primary-subtle rounded-3'>
+            Username: <input value={username} onChange={(e) => setUsername(e.target.value)} className='p-1 text-danger-emphasis bg-primary-subtle border border-primary-subtle rounded-3'/>
         </label>
-        <label>
-            Password: <input value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <label className='px-2 text-danger-emphasis bg-primary-subtle border border-primary-subtle rounded-3'>
+            Password: <input value={password} onChange={(e) => setPassword(e.target.value)} className='p-1 text-danger-emphasis bg-primary-subtle border border-primary-subtle rounded-3'/>
         </label>
-        <button>Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
       {
             showUsername && <p>Hi! {showUsername}</p>
       }
+      <hr />
     </div>
   )
 }

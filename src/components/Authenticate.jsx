@@ -20,10 +20,10 @@ export default function Authenticate({token}) {
     }
   return (
     <div>
-      <h2>Authenticate</h2>
+      <h2 className="text-dark">Authenticate</h2>
       {successMessage && <p>{successMessage}</p>}
       {error && <p>{error}</p>}
-      <button onClick={handleClick}>
+      <button className="btn btn-danger" onClick={handleClick}>
         <p>Authenticate Token</p>
       </button>
     </div>
