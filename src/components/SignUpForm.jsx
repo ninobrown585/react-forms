@@ -9,6 +9,18 @@ export default function SignUpForm({setToken}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setShowUsername(username);
+        // empty input fields validation
+        if (!username || !password) {
+            setError(new Error("Please fill out all fields"));
+            return;
+        }
+        // input length validation and no display of username
+        if (username.length < 8 || password.length < 8) {
+            setError(new Error("Username and password must be at least 8 characters long"));
+            setShowUsername("");
+            return;
+        }
+
         try {
             const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup", {
                 method: "POST",
@@ -31,7 +43,7 @@ export default function SignUpForm({setToken}) {
 
   return (
     <div>
-      <h2 className="text-primary">Sign Up!</h2>;
+      <h2 className="text-primary">Sign Up!</h2>
       {
             error && <p>{error.message}</p>
       }
